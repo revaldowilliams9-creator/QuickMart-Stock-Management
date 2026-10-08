@@ -1,55 +1,55 @@
 from dataclasses import dataclass
 
-
 @dataclass
 class Product:
     name: str
     price: float
     quantity: int
 
-# Function to calculate total value
-def total_value(product):
-    return product.price * product.quantity
+    # 1. Internalized logic into an instance method
+    def total_value(self) -> float:
+        return self.price * self.quantity
 
-# List to store all products
+# 2. Reusable validation helpers to clean up the main loop
+def get_float_input(prompt: str) -> float:
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print(" Please enter a valid number.")
+
+def get_int_input(prompt: str) -> int:
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print(" Please enter a whole number.")
+
 products = []
-# Control variable for loop
-# Product Name
-while True:
-    name = input("Enter product name: ")
-# Price Validation
-    while True:
-        try:
-            price = float(input("Enter price: R"))
-            break
-        except ValueError:
-            print("Please enter a valid number.")
-# Quantity Validation
-    while True:
-        try:
-            quantity = int(input("Enter quantity: "))
-            break
-        except ValueError:
-            print("Please enter a whole number.")
-  # Create Product Object
-  # Add Product Object to List
-    product = Product(name, price, quantity)
-    products.append(product)
- # Ask user if they want to continue
-    choice = input("Capture another product? (yes/no): ").lower()
 
-    if choice != "yes":
+# Main Input Loop
+while True:
+    name = input("\nEnter product name: ").strip()
+    if not name:
+        print(" Product name cannot be empty.")
+        continue
+
+    price = get_float_input("Enter price: R")
+    quantity = get_int_input("Enter quantity: ")
+    
+    # Create and add object
+    products.append(Product(name, price, quantity))
+    
+    # Simplified choice check
+    if input("Capture another product? (yes/no): ").lower().strip() != "yes":
         break
 
 # Display Summary
 print("\n--- Inventory Summary ---")
 
-total_inventory = 0
+for p in products:
+    print(f" {p.name}: R{p.price:.2f} x {p.quantity} = R{p.total_value():.2f}")
 
-for product in products:
-    value = total_value(product)
-    print(f"{product.name}: R{product.price:.2f} x "
-          f"{product.quantity} = R{value:.2f}")
-    total_inventory += value
-
-print(f"\nTotal inventory value: R{total_inventory:.2f}")
+# 3. Clean list comprehension for total calculation
+total_inventory = sum(p.total_value() for p in products)
+print(f"\n Total inventory value: R{total_inventory:.2f}")
