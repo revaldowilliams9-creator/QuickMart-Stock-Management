@@ -25,3 +25,4 @@ A modular, console-based stock management application built in Python. This prog
    python main.py
    ```
 
+I built this console system to apply clean Object-Oriented Programming principles and Python dataclasses to real-world retail inventory tracking. It solves the challenge of keeping stock quantities, unit pricing, and total warehouse valuations synchronized through modular, easy-to-maintain code.
