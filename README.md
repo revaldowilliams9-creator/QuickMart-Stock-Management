@@ -2,6 +2,9 @@
 
 A modular, console-based stock management application built in Python. This program was developed to help store staff capture inventory data efficiently, calculate product stock values automatically, and generate structured inventory reports.
 
+## 💡 Why I Built This 
+I built this console system to apply clean Object-Oriented Programming principles and Python dataclasses to real-world retail inventory tracking. It solves the challenge of keeping stock quantities, unit pricing, and total warehouse valuations synchronized through modular, easy-to-maintain code.
+
 ## 🚀 Features
 * **Automated Data Management:** Utilizes modern Python data structures (`@dataclass`) to handle product attributes seamlessly without manual boilerplate code.
 * **Robust Input Validation:** Implements modular helper functions with exception handling (`try-except` blocks) to prevent system crashes caused by invalid data entry.
@@ -24,5 +27,3 @@ A modular, console-based stock management application built in Python. This prog
    ```bash
    python main.py
    ```
-
-I built this console system to apply clean Object-Oriented Programming principles and Python dataclasses to real-world retail inventory tracking. It solves the challenge of keeping stock quantities, unit pricing, and total warehouse valuations synchronized through modular, easy-to-maintain code.
