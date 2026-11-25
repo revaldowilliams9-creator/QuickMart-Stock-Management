@@ -2,8 +2,6 @@
 
 A modular, console-based stock management application built in Python. This program was developed to help store staff capture inventory data efficiently, calculate product stock values automatically, and generate structured inventory reports.
 
-This project was completed as part of the **Programming 1A** curriculum for the **Higher Certificate / Diploma in Systems Development** at **Boston City Campus**.
-
 ## 🚀 Features
 * **Automated Data Management:** Utilizes modern Python data structures (`@dataclass`) to handle product attributes seamlessly without manual boilerplate code.
 * **Robust Input Validation:** Implements modular helper functions with exception handling (`try-except` blocks) to prevent system crashes caused by invalid data entry.
